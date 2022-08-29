@@ -1,0 +1,19 @@
+service: url-zip-s3
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  url:
+    handler: handler.handler
+    timeout: 30
+    memorySize: 512
+    events:
+      - http:
+          path: /download
+          method: post
+
+plugins:
+  - serverless-offline
