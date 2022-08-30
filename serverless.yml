@@ -9,11 +9,14 @@ functions:
   url:
     handler: handler.handler
     timeout: 30
-    memorySize: 512
     events:
       - http:
           path: /download
           method: post
+  zipFileAndTriggerEmail:
+    handler: core.handler
+    timeout: 900
+    memorySize: 1024
 
 plugins:
   - serverless-offline
